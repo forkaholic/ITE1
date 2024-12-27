@@ -9,35 +9,53 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.h 
+ * @brief function sigs for stats
  *
- * <Add Extended Description Here>
+ * Provides function signatures for functions that calculate basic statistics
+ * as well as auxillary functions necessary to operation.
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Devin Salter
+ * @date 12/27/2024
  *
  */
 
+/*
+ * Prints the following statistics on the int* of size size_t
+ * *Median
+ * *Mean
+ * *Maximum
+ * *Minumum
+ */
+void print_statistics(int*, size_t);
 
+/*
+ * Prints the values stored in the int* of size size_t
+ */
+void print_array(int*, size_t);
 
-#include <stdio.h>
-#include "stats.h"
+/*
+ * Finds the median value in the int* of size size_t
+ */
+int find_median(int*, size_t);
 
-/* Size of the Data Set */
-#define SIZE (40)
+/*
+ * Calculates the mean value of the int* of size size_t
+ */
+int find_mean(int*, size_t);
 
-void main() {
+/*
+ * Finds the maximum value in the int* of size size_t
+ */
+int find_maximum(int*, size_t);
 
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
+/*
+ * Finds the minimum value in the int* of size size_t
+ */
+int find_minimum(int*, size_t);
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+/*
+ * Sorts the int* of size size_t from the largest to smallest value
+ */
+void sort_array(int*, size_t);
 
-}
-
-/* Add other Implementation File Code Here */
