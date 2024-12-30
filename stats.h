@@ -27,35 +27,38 @@
  * *Maximum
  * *Minumum
  */
-void print_statistics(int*, size_t);
+void print_statistics(unsigned char*, size_t);
 
 /*
- * Prints the values stored in the int* of size size_t
+ * Prunsigned chars the values stored in the unsigned char* of size size_t
  */
-void print_array(int*, size_t);
+void print_array(unsigned char*, size_t);
 
 /*
- * Finds the median value in the int* of size size_t
+ * Finds the median value in the unsigned char* of size size_t
+ * Assumes that the array is sorted from maximum value to minimum
  */
-int find_median(int*, size_t);
+unsigned char find_median(unsigned char*, size_t);
 
 /*
- * Calculates the mean value of the int* of size size_t
+ * Calculates the mean value of the unsigned char* of size size_t
  */
-int find_mean(int*, size_t);
+unsigned char find_mean(unsigned char*, size_t);
 
 /*
- * Finds the maximum value in the int* of size size_t
+ * Finds the maximum value in the unsigned char* of size size_t
+ * Assumes that the array is sorted from maximum value to minimum
  */
-int find_maximum(int*, size_t);
+unsigned char find_maximum(unsigned char*, size_t);
 
 /*
- * Finds the minimum value in the int* of size size_t
- */
-int find_minimum(int*, size_t);
+ * Finds the minimum value in the unsigned char* of size size_t
+ * Assumes that the array is sorted from maximum value to minimum
+  */
+unsigned char find_minimum(unsigned char*, size_t);
 
 /*
- * Sorts the int* of size size_t from the largest to smallest value
+ * Sorts the unsigned char* of size size_t from the largest to smallest value
  */
-void sort_array(int*, size_t);
+void sort_array(unsigned char*, size_t);
 

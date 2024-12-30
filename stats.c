@@ -12,10 +12,10 @@
  * @file stats.c 
  * @brief Implementations of stats.h
  *
- * Provides the implementations for the functions finding statistical values in stats.h
+ * Provides the implementations for the functions to find statistical values in stats.h
  *
  * @author Devin Salter
- * @date 12/27/2024
+ * @date 12/29/2024
  *
  */
 
@@ -25,40 +25,47 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-int find_median(int* array, size_t size) {
+void sort_array(unsigned char* array, size_t size) {
+  if(size == 0) return;
+  unsigned char temp = 0;
+  for(size_t current = 0; current < size - 1; current++) {
+    for(size_t check = current + 1; check < size; check++) {
+      if(array[current] < array[check]) {
+        temp = array[current];
+        array[current] = array[check];
+	array[check] = temp;	
+      } 
+
+    }
+  }
+}
+
+unsigned char find_median(unsigned char* array, size_t size) {
   if(size == 0) return 0;
   else if(size % 2 == 0) return (array[size / 2 - 1] + array[size / 2]) / 2;
   else return array[size / 2];
 }
 
-int find_mean(int* array, size_t size) {
+unsigned char find_mean(unsigned char* array, size_t size) {
   if(size == 0) return 0;
-  int total = 0;
+  unsigned long total = 0;
   for(size_t index = 0; index < size; index++) {
     total += array[index];
   }
-  return total / size;
+  return (unsigned char)(total / size);
 }
 
-int find_maximum(int* array, size_t size) {
+unsigned char find_maximum(unsigned char* array, size_t size) {
   if(size == 0) return 0;
-  int maximum = array[0];
-  for(size_t index = 1; index < size; index++) { 
-    if(array[index] > maximum) maximum = array[index];
-  }
-  return maximum;
+  return array[0];
 }
 
-int find_minimum(int* array, size_t size) {
+unsigned char find_minimum(unsigned char* array, size_t size) {
   if(size == 0) return 0;
-  int minimum = array[0];
-  for(size_t index = 1; index < size; index++) {
-    if(array[index] < minimum) minimum = array[index];
-  }
-  return minimum;
+  return array[size - 1];
 }
 
-void print_array(int* array, size_t size) {
+void print_array(unsigned char* array, size_t size) {
   size_t total = 0;
   size_t col = 0;
   while(total < size) {
@@ -67,14 +74,14 @@ void print_array(int* array, size_t size) {
     col++;
     total++;
 
-    if(col==7) {
+    if(col==8) {
       printf("\n");
       col = 0;
     }
   }
 }
 
-void print_statistics(int* array, size_t size) {
+void print_statistics(unsigned char* array, size_t size) {
   printf("Median: %d\n", find_median(array, size));
   printf("Mean: %d\n", find_mean(array, size));
   printf("Maximum: %d\n", find_maximum(array, size));
@@ -88,8 +95,9 @@ int main() {
                               200, 122, 150, 90,   92,  87, 177, 244,
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
-  }
   
+  sort_array(test, SIZE); 
+
   print_array(test, SIZE);
   printf("\n");
   print_statistics(test, SIZE);
